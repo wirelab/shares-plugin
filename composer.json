@@ -1,0 +1,9 @@
+{
+    "name": "wirelab/shares-plugin",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Wirelab\\SharesPlugin\\": "src/"
+        }
+    }
+}
