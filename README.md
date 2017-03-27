@@ -1,2 +1,2 @@
-# shares module
-shares module for pyrocms 3
+# shares plugin
+shares plugin for pyrocms 3
