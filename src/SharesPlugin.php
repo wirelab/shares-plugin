@@ -24,6 +24,15 @@ class SharesPlugin extends Plugin
                 [
                     'is_safe' => ['html'],
                 ]
+            ),
+            new \Twig_SimpleFunction(
+                'shares_scripts',
+                function () {
+                    return view()->make('wirelab.plugin.shares::scripts');
+                },
+                [
+                    'is_safe' => ['html'],
+                ]
             )
         ];
     }

@@ -49,9 +49,9 @@ class MakeShareButtons
             $networks = $this->params['networks'];
         } else {
             $networks = [];
-            $composer_folder   = '../core/wirelab/shares-plugin/resources/views'; // The location of the views if the user installed the plugin using composer
-            $manual_folder     = '../addons/' . env('APPLICATION_REFERENCE') . '/wirelab/shares-plugin/resources/views'; // The location of the views if the user installed the plugin manually
-            $published_folder  = '../resources' . env('APPLICATION_REFERENCE') . 'addons/wirelab/shares-plugin/views'; // The locations of the views if the user published the views
+            $composer_folder   = '../core/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin using composer
+            $manual_folder     = '../addons/' . env('APPLICATION_REFERENCE') . '/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin manually
+            $published_folder  = '../resources' . env('APPLICATION_REFERENCE') . 'addons/wirelab/shares-plugin/views/networks'; // The locations of the views if the user published the views
 
             // Try to find the views folder
            if (file_exists($published_folder)) {
@@ -71,7 +71,7 @@ class MakeShareButtons
         }
 
         foreach ($networks as $network) {
-            $shares .= view()->make("wirelab.plugin.shares::$network", $data);
+            $shares .= view()->make("wirelab.plugin.shares::networks/$network", $data);
         }
 
         return $shares;
