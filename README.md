@@ -1,4 +1,4 @@
-# shares plugin
+# Shares plugin
 Plugin which provides users with a quick way of adding customizable share links with GA tracking.
 
 ## Usage
