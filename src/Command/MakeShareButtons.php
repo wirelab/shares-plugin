@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Kint;
+use Wirelab\SharesPlugin\Command\GetNetworks;
 
 class MakeShareButtons
 {
@@ -48,26 +49,7 @@ class MakeShareButtons
         if (isset($this->params['networks'])) {
             $networks = $this->params['networks'];
         } else {
-            $networks = [];
-            $composer_folder   = '../core/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin using composer
-            $manual_folder     = '../addons/' . env('APPLICATION_REFERENCE') . '/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin manually
-            $published_folder  = '../resources' . env('APPLICATION_REFERENCE') . 'addons/wirelab/shares-plugin/views/networks'; // The locations of the views if the user published the views
-
-            // Try to find the views folder
-           if (file_exists($published_folder)) {
-                $views_dir = published_folder;
-           } elseif (file_exists($manual_folder)) {
-                $views_dir = $manual_folder;
-            } elseif(file_exists($composer_folder )) {
-                $views_dir = $composer_folder;
-            } else {
-                // If we can't find it throw a new exception
-                throw new Exception("Couldn't find view folder.");
-            }
-            foreach (File::allFiles($views_dir) as $file){
-                // Use the names of the views as networks
-                $networks[] = $file->getBaseName('.' . $file->getExtension());
-            }
+            $networks = GetNetworks::enabled();
         }
 
         foreach ($networks as $network) {
