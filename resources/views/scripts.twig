@@ -57,7 +57,7 @@
 	var linkedin_shares = document.querySelectorAll('.shares-linkedin');
 	for (var i = linkedin_shares.length - 1; i >= 0; i--) {
 		linkedin_shares[i].addEventListener('click', function(e){
-        	var linkedin_share = e.srcElement.dataset;
+        	var linkedin_share = this.dataset;
 			window.open(
 					'https://www.linkedin.com/shareArticle?mini=true&url=' + linkedin_share.url + '&title=' + linkedin_share.title + '&summary=' + linkedin_share.summary + '&source=' + linkedin_share.sitename,
 					'title',
@@ -72,7 +72,7 @@
 	var facebook_shares = document.querySelectorAll('.shares-facebook');
 	for (var i = facebook_shares.length - 1; i >= 0; i--) {
 		facebook_shares[i].addEventListener('click', function(e){
-        	var facebook_share = e.srcElement.dataset;
+        	var facebook_share = this.dataset;
 			FB.ui({
 			  method: 'share',
 			  display: 'popup',
