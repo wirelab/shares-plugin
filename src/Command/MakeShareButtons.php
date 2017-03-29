@@ -40,9 +40,9 @@ class MakeShareButtons
 
         $data = [
             'url'         => $url,
-            'title'       => $title,
-            'description' => $description,
-            'site_name'   => $site_name
+            'title'       => urlencode($title),
+            'description' => urlencode($description),
+            'site_name'   => urlencode($site_name)
         ];
 
         if (isset($this->params['networks'])) {
