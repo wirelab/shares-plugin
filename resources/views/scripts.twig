@@ -1,4 +1,23 @@
 <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{{ setting('wirelab.plugin.shares::facebook_app_id') }}',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <script type="text/javascript">
 	/**
 	 * Track shares in google analytics
@@ -19,9 +38,7 @@
 	  for (var i = whatsapp_shares.length - 1; i >= 0; i--) {
 	  	whatsapp_shares[i].style.display = '';
 	  }
-	  $('.shares-whatsapp').click(function(event) {
-	    return trackShare("whatsapp");
-	  });
+	  $('.shares-whatsapp').click(function(event) { trackShare("whatsapp"); });
 	}
 
 	/**
@@ -29,26 +46,10 @@
 	 */
 	twttr.ready(function(twttr) {
 	  var tweeted = function(intentEvent) {
-	    if (!intentEvent) { return; }
-	    return trackShare("twitter");
+	    if (!intentEvent) { trackShare("twitter") };
 	  };
-	  return twttr.events.bind('tweet', tweeted);
+	  twttr.events.bind('tweet', tweeted);
 	});
-
-	/**
-	 * Track facebook shares
-	 */
-	var facebook_shares = document.querySelectorAll('.shares-linkedin');
-	for (var i = facebook_shares.length - 1; i >= 0; i--) {
-		facebook_shares[i].addEventListener('click', function(e){
-        	var facebook_share = e.srcElement.dataset;
-			var obj = {
-			  method: 'share',
-			  href: facebook_share.url
-			};
-			return FB.ui(obj, function(resp) { return trackShare("facebook"); });
-		});
-	}
 
 	/**
 	 * Open a popup for the linkedin shares
@@ -62,6 +63,21 @@
 					'title',
 					'width=520,height=570,location=false'
 			);
+		});
+	}
+
+	/**
+	 * Open a popup for the facebook shares
+	 */
+	var facebook_shares = document.querySelectorAll('.shares-facebook');
+	for (var i = facebook_shares.length - 1; i >= 0; i--) {
+		facebook_shares[i].addEventListener('click', function(e){
+        	var facebook_share = e.srcElement.dataset;
+			FB.ui({
+			  method: 'share',
+			  display: 'popup',
+			  href: facebook_share.url,
+			}, function(response){ trackShare("facebook") });
 		});
 	}
 </script>
