@@ -1,1 +1,17 @@
 <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        var shares = document.getElementsByClassName('shares-linkedin');
+        for(var i = 0; i < shares.length; i++) {
+            var share = shares[i];
+            share.onclick = function(e) {
+            	var share = e.srcElement.dataset;
+				window.open(
+						'https://www.linkedin.com/shareArticle?mini=true&url=' + share.url + '&title=' + share.title + '&summary=' + share.summary + '&source=' + share.sitename,
+						'title',
+						'width=520,height=570,location=false'
+				);
+            }
+        }
+    }
+</script>
