@@ -1,6 +1,27 @@
 {
     "name": "wirelab/shares-plugin",
     "type": "streams-addon",
+    "description": "Plugin which provides users with a quick way of adding customizable share links.",
+    "keywords": [
+        "wirelab",
+        "plugin",
+        "pyrocms",
+        "pyrocms 3",
+        "shares"
+    ],
+    "homepage": "http://wirelab.nl/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wirelab",
+            "email": "algemeen@wirelab.nl",
+            "homepage": "http://www.wirelab.nl/",
+            "role": "Owner"
+        }
+    ],
+    "support": {
+        "email": "algemeen@wirelab.nl"
+    },
     "autoload": {
         "psr-4": {
             "Wirelab\\SharesPlugin\\": "src/"

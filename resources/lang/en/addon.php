@@ -3,5 +3,5 @@
 return [
     'title'       => 'Shares',
     'name'        => 'Shares Plugin',
-    'description' => ''
+    'description' => 'Plugin which provides users with a quick way of adding customizable share links.'
 ];
