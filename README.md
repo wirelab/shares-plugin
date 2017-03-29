@@ -3,7 +3,7 @@ shares plugin for pyrocms 3
 
 ## Usage
 1. put `{{ shares_scripts()|raw }}` in your theme
-2. call `{{ shares({title: '', url: '', description: '', networks: ['']})` in any twig file.
+2. call `{{ shares({title: '', url: '', description: '', networks: ['']}}` in any twig file.
 
 _All parameters are optional_
 
