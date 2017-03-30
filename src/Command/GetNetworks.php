@@ -1,9 +1,10 @@
 <?php namespace Wirelab\SharesPlugin\Command;
 
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
+use App;
 use Exception;
 use Illuminate\Config\Repository;
-use App;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 
 class GetNetworks
@@ -18,22 +19,23 @@ class GetNetworks
 	public static function all()
 	{
         $networks = [];
-        $composer_folder   = '../core/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin using composer
-        $manual_folder     = '../addons/' . env('APPLICATION_REFERENCE') . '/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin manually
-        $published_folder  = '../resources' . env('APPLICATION_REFERENCE') . 'addons/wirelab/shares-plugin/views/networks'; // The locations of the views if the user published the views
+        $filesystem        = new Filesystem;
+        $composer_folder   = base_path() . '/core/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin using composer
+        $manual_folder     = base_path() . '/addons/' . env('APPLICATION_REFERENCE') . '/wirelab/shares-plugin/resources/views/networks'; // The location of the views if the user installed the plugin manually
+        $published_folder  = base_path() . '/resources' . env('APPLICATION_REFERENCE') . 'addons/wirelab/shares-plugin/views/networks'; // The locations of the views if the user published the views
 
         // Try to find the views folder
-       if (file_exists($published_folder)) {
+       if ($filesystem->exists($published_folder)) {
             $views_dir = published_folder;
-       } elseif (file_exists($manual_folder)) {
+       } elseif ($filesystem->exists($manual_folder)) {
             $views_dir = $manual_folder;
-        } elseif(file_exists($composer_folder )) {
+        } elseif($filesystem->exists($composer_folder )) {
             $views_dir = $composer_folder;
         } else {
             // If we can't find it throw a new exception
-            throw new Exception("Couldn't find view folder.");
+            throw new Exception("[shares-plugin] Couldn't find view folder.");
         }
-        foreach (File::allFiles($views_dir) as $file){
+        foreach ($filesystem->allFiles($views_dir) as $file){
             // Use the names of the views as networks
             $networks[] = $file->getBaseName('.' . $file->getExtension());
         }
