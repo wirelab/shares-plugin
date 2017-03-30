@@ -3,7 +3,7 @@ Plugin which provides users with a quick way of adding customizable share links 
 Works with any module that sets a `meta_title` and `meta_description`.
 
 ## Installation
-`composer require wirelab/shares`
+`composer require wirelab/shares-plugin`
 
 ## Usage
 1. Set your facebook app key in `settings > plugins > shares plugin` _(optional)_
