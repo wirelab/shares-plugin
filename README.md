@@ -48,3 +48,4 @@ ga('create', 'UA-XXXXX-Y', 'auto');
 ga('send', 'pageview');
 </script>
 ```
+_For the most recent snippet please check [Google's documentation](https://developers.google.com/analytics/devguides/collection/analyticsjs/#the_javascript_tracking_snippet)_
