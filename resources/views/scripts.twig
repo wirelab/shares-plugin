@@ -46,7 +46,7 @@
 	 */
 	twttr.ready(function(twttr) {
 	  var tweeted = function(intentEvent) {
-	    if (!intentEvent) { trackShare("twitter") };
+	    trackShare("twitter");
 	  };
 	  twttr.events.bind('tweet', tweeted);
 	});
