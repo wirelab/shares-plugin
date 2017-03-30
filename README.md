@@ -1,6 +1,9 @@
 # Shares plugin
 Plugin which provides users with a quick way of adding customizable share links with GA tracking.
 
+## Installation
+`composer require wirelab/shares`
+
 ## Usage
 1. Set your facebook app key in `settings > plugins > shares plugin` _(optional)_
 2. Selects the networks that are enabled by default `settings > plugins > shares plugin` _(optional)_
