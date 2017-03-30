@@ -1,5 +1,6 @@
 # Shares plugin
 Plugin which provides users with a quick way of adding customizable share links with GA tracking.
+Works with any module that sets a `meta_title` and `meta_description`.
 
 ## Installation
 `composer require wirelab/shares`
