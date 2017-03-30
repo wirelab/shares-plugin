@@ -2,7 +2,7 @@
 
 use Wirelab\SharesPlugin\Command\GetNetworks;
 
-$networks = GetNetworks::all();
+$networks      = GetNetworks::all();
 $default_value = range(0, count($networks)-1);
 
 return [
@@ -13,7 +13,7 @@ return [
         'type'   => 'anomaly.field_type.checkboxes',
         'config' => [
         	'default_value' => $default_value,
-        	'options' => $networks,
+        	'options'       => $networks,
         ]
     ],
 ];

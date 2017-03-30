@@ -11,7 +11,7 @@ class GetNetworks
 	/**
 	 * Return all networks
 	 *
-	 * @throws Exception Couldn't find view folder
+	 * @throws Exception `Couldn't find view folder`
 	 *
 	 * @return array ['network','network']
 	 */

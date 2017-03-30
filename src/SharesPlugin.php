@@ -18,21 +18,13 @@ class SharesPlugin extends Plugin
         return [
             new \Twig_SimpleFunction(
                 'shares',
-                function ($params = []) {
-                    return $this->dispatch(new MakeShareButtons($params));
-                },
-                [
-                    'is_safe' => ['html'],
-                ]
+                function ($params = []) { return $this->dispatch(new MakeShareButtons($params)); },
+                ['is_safe' => ['html']]
             ),
             new \Twig_SimpleFunction(
                 'shares_scripts',
-                function () {
-                    return view()->make('wirelab.plugin.shares::scripts');
-                },
-                [
-                    'is_safe' => ['html'],
-                ]
+                function () { return view()->make('wirelab.plugin.shares::scripts'); },
+                ['is_safe' => ['html']]
             )
         ];
     }
