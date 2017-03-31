@@ -6,7 +6,6 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Kint;
 use Wirelab\SharesPlugin\Command\GetNetworks;
 
 class MakeShareButtons
