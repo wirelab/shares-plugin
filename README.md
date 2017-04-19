@@ -23,10 +23,11 @@ _All parameters are optional_
 
 ## Examples
 ```twig
-{{ shares() }}
+{{ shares() }} {# Guessing all data #}
 
-{{ shares({'networks':['twitter','facebook']}) }}
+{{ shares({'networks':['twitter','facebook']}) }} {# Limiting to certain networks #}
 
+{# Manually setting data #}
 {{
 	shares({
 		'title': 'Wirelab',
@@ -34,6 +35,8 @@ _All parameters are optional_
 		'url': 'http:://www.wirelab.nl'
 	})
 }}
+
+{{ shares_data() }} {# Get an array of all data instead of views #}
 ```
 
 ## Adding google analytics

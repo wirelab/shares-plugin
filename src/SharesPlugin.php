@@ -4,6 +4,7 @@ use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
 use Twig_Environment;
 use Twig_NodeVisitorInterface;
 use Wirelab\SharesPlugin\Command\MakeShareButtons;
+use Wirelab\SharesPlugin\Command\MakeShareData;
 
 class SharesPlugin extends Plugin
 {
@@ -19,6 +20,11 @@ class SharesPlugin extends Plugin
             new \Twig_SimpleFunction(
                 'shares',
                 function ($params = []) { return $this->dispatch(new MakeShareButtons($params)); },
+                ['is_safe' => ['html']]
+            ),
+            new \Twig_SimpleFunction(
+                'shares_data',
+                function ($params = []) { return $this->dispatch(new MakeShareData($params)); },
                 ['is_safe' => ['html']]
             ),
             new \Twig_SimpleFunction(
