@@ -44,10 +44,10 @@ class MakeShareData
                 'class'    => 'shares-facebook'
             ],
             'twitter' => [
-                'href' => "http://twitter.com/intent/tweet?status=$title+-+$url"
+                'href' => 'http://twitter.com/intent/tweet?status=' . urlencode($title) . '&url=' . urlencode($url)
             ],
             'whatsapp' => [
-                'href'  => "whatsapp://send?text=$url",
+                'href'  => 'whatsapp://send?text=' . urlencode($url),
                 'class' => 'shares-whatsapp'
             ],
             'linkedin' => [
