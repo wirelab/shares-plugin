@@ -63,7 +63,7 @@ class MakeShareData
             ],
             'email' => [
                 'name' => 'E-mail',
-                'href' => 'mailto:&subject=' . urlencode($title) . '&body=' . urlencode($description) . '\r\n' . urlencode($url)
+                'href' => 'mailto:?subject=' . urlencode($title) . '&amp;body=' . urlencode($description) . '\r\n' . urlencode($url)
             ]
         ];
 
