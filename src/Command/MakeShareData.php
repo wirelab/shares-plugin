@@ -40,22 +40,30 @@ class MakeShareData
 
         $data = [
             'facebook' => [
+                'name'     => 'Facebook',
                 'data-url' => $url,
                 'class'    => 'shares-facebook'
             ],
             'twitter' => [
+                'name' => 'Twitter',
                 'href' => 'http://twitter.com/intent/tweet?status=' . urlencode($title) . '&url=' . urlencode($url)
             ],
             'whatsapp' => [
+                'name'  => 'WhatsApp'
                 'href'  => 'whatsapp://send?text=' . urlencode($url),
                 'class' => 'shares-whatsapp'
             ],
             'linkedin' => [
+                'name'          => 'LinkedIn',
                 'data-sitename' => $site_name,
                 'data-title'    => $title,
                 'data-url'      => $url,
                 'data-summary'  => $description,
                 'class'         => 'shares-linkedin'
+            ],
+            'email' => [
+                'name' => 'E-mail',
+                'href' => 'mailto:&subject=' . urlencode($title) . '&body=' . urlencode($description) . '\r\n' . urlencode($url)
             ]
         ];
 
