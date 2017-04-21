@@ -49,7 +49,7 @@ class MakeShareData
                 'href' => 'http://twitter.com/intent/tweet?status=' . urlencode($title) . '&url=' . urlencode($url)
             ],
             'whatsapp' => [
-                'name'  => 'WhatsApp'
+                'name'  => 'WhatsApp',
                 'href'  => 'whatsapp://send?text=' . urlencode($url),
                 'class' => 'shares-whatsapp'
             ],
