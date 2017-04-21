@@ -36,7 +36,7 @@ class MakeShareButtons
         $shares      = '';
         $title       = isset($this->params['title']) ? $this->params['title'] : $template['meta_title'];
         $description = isset($this->params['description']) ? $this->params['description'] : $template['meta_description'];
-        $site_name   = $config->get('streams::distribution.name');
+        $site_name   = $config->get('app.name');
 
         $data = [
             'url'         => $url,
