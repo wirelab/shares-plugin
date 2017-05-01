@@ -37,8 +37,10 @@
       var whatsapp_shares = document.querySelectorAll('.shares-whatsapp');
 	  for (var i = whatsapp_shares.length - 1; i >= 0; i--) {
 	  	whatsapp_shares[i].style.display = '';
+      whatsapp_shares[i].addEventListener('click', function(event){
+        trackShare('whatsapp');
+      });
 	  }
-	  $('.shares-whatsapp').click(function(event) { trackShare("whatsapp"); });
 	}
 
 	/**
