@@ -46,11 +46,11 @@ class MakeShareData
             ],
             'twitter' => [
                 'name' => 'Twitter',
-                'href' => 'http://twitter.com/intent/tweet?status=' . urlencode($title) . '&url=' . urlencode($url)
+                'href' => 'http://twitter.com/intent/tweet?status=' . rawurlencode($title) . '&url=' . rawurlencode($url)
             ],
             'whatsapp' => [
                 'name'  => 'WhatsApp',
-                'href'  => 'whatsapp://send?text=' . urlencode($url),
+                'href'  => 'whatsapp://send?text=' . rawurlencode($url),
                 'class' => 'shares-whatsapp'
             ],
             'linkedin' => [
@@ -63,7 +63,7 @@ class MakeShareData
             ],
             'email' => [
                 'name' => 'E-mail',
-                'href' => 'mailto:?subject=' . urlencode($title) . '&amp;body=' . urlencode($description) . '%0A%0A' . urlencode($url)
+                'href' => 'mailto:?subject=' . rawurlencode($title) . '&body=' . rawurlencode($description) . '%0A%0A' . rawurlencode($url)
             ]
         ];
 
