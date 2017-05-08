@@ -46,7 +46,7 @@ class MakeShareData
             ],
             'twitter' => [
                 'name' => 'Twitter',
-                'href' => 'http://twitter.com/intent/tweet?status=' . rawurlencode($title) . '&url=' . rawurlencode($url)
+                'href' => 'http://twitter.com/intent/tweet?text=' . rawurlencode($title) . '&url=' . rawurlencode($url)
             ],
             'whatsapp' => [
                 'name'  => 'WhatsApp',
