@@ -21,6 +21,10 @@ _All parameters are optional_
 | url | The url that gets shares | yes | the current url | String |
 | networks | List of social media networks to return | yes | all _(configurable in the settings)_ | Array |
 
+
+# Enable facebook shares
+Set the following cookie: `cconsent=isAccepted` using javascript. Then call `callCbIfConsentGiven(callback)`.
+
 ## Examples
 ```twig
 {{ shares() }} {# Guessing all data #}
